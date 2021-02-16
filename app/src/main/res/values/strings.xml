@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Rader</string>
+    <string name="hint_enter_username">Unesite vase korisnicko ime</string>
+    <string name="hint_enter_password">Unesite vasu sifru</string>
+    <string name="button_title_login">Prijavi se</string>
+    <string name="label_dont_have_account">Nemate nalog?</string>
+    <string name="label_sign_up"><u>Registruj se</u></string>
+    <string name="button_title_register">Registruj se</string>
+    <string name="button_title_logout">Odjavi se</string>
+</resources>
