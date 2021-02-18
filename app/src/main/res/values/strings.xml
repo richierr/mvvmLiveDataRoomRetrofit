@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rader</string>
+    <string name="app_name">Kursna lista</string>
     <string name="hint_enter_username">Unesite vase korisnicko ime</string>
     <string name="hint_enter_password">Unesite vasu sifru</string>
     <string name="button_title_login">Prijavi se</string>

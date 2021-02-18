@@ -19,16 +19,21 @@
             android:id="@+id/tvLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:background="#2196f3"
+            android:layout_marginTop="40dp"
+
+
+            android:layout_marginEnd="52dp"
+
+
+            android:background="@drawable/rounded_corner"
             android:gravity="center"
             android:onClick="@{() -> viewmodel.logout()}"
             android:padding="8dp"
             android:text="@string/button_title_logout"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGbpValue" />
 
         <TextView
             android:id="@+id/tvEur"
@@ -138,6 +143,7 @@
             android:layout_marginEnd="24dp"
             android:gravity="center"
             android:text="@{viewmodel.currenciesLiveData.date}"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
