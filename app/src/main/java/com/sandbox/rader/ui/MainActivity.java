@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.sandbox.rader.R;
 import com.sandbox.rader.app.App;
@@ -17,6 +18,9 @@ import com.sandbox.rader.utils.Constants;
 
 public class MainActivity extends AppCompatActivity {
 
+    //VIEWMODEL
+    public MainViewModel mainViewModel;
+
 
     public UserRepository userRepository;
 
@@ -25,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
         userRepository = UserRepository.getInstance();
         if (App.getUserManager().isLoggedIn()) {
             navigateToScreen(Constants.DASHBOARD_SCREEN);
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
+    public MainViewModel getMainViewModel() {
+        return mainViewModel;
+    }
 }

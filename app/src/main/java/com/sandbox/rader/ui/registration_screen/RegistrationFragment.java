@@ -15,11 +15,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.sandbox.rader.R;
 import com.sandbox.rader.databinding.RegistrationFragmentBinding;
 import com.sandbox.rader.ui.MainActivity;
+import com.sandbox.rader.ui.MainViewModel;
 import com.sandbox.rader.utils.Constants;
 
 public class RegistrationFragment extends Fragment {
 
-    private RegistrationViewModel mViewModel;
+    private MainViewModel mainViewModel;
+
+    //private RegistrationViewModel mViewModel;
 
     private RegistrationFragmentBinding binding;
 
@@ -36,23 +39,34 @@ public class RegistrationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(RegistrationViewModel.class);
-        binding.setViewmodel(mViewModel);
+
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
+        //mViewModel = new ViewModelProvider(this).get(RegistrationViewModel.class);
+        binding.setViewmodel(mainViewModel);
         observeLogin();
     }
 
     private void observeLogin() {
-        mViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
+        mainViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
                 mainActivity.navigateToScreen(Constants.DASHBOARD_SCREEN);
             }
         });
+
+//        mViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
+//            if (user != null) {
+//                mainActivity.navigateToScreen(Constants.DASHBOARD_SCREEN);
+//            }
+//        });
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
+
+        mainViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
+//        mViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
     }
 
     @Override

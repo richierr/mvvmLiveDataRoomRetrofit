@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.sandbox.rader.ui.login_screen.LoginViewModel" />
+            type="com.sandbox.rader.ui.MainViewModel" />
 
         <variable
             name="fragment"
@@ -28,12 +28,17 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:boxBackgroundColor="@null"
+
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietUserName"
                 android:layout_width="match_parent"
+
+
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_enter_username"
                 android:text="@={viewmodel.userName}" />
@@ -42,6 +47,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
+
+            app:boxBackgroundColor="@null"
+
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
@@ -63,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:backgroundTint="#2196f3"
             android:onClick="@{() -> viewmodel.login()}"
             android:text="@string/button_title_login"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,10 +80,11 @@
 
         <TextView
             android:id="@+id/tvLabelDontHaveAccount"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
+            android:textSize="22sp"
             android:text="@string/label_dont_have_account"
             app:layout_constraintEnd_toStartOf="@+id/tvSignUp"
             app:layout_constraintHorizontal_bias="0.5"
@@ -83,12 +93,12 @@
 
         <TextView
             android:id="@+id/tvSignUp"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            android:text="@string/label_sign_up"
-            android:textColor="@color/purple"
             android:onClick="@{() -> fragment.handleRegistrationScreen()}"
+            android:text="@string/label_sign_up"
+            android:textColor="#2196f3"
             android:textSize="22sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelDontHaveAccount"
             app:layout_constraintEnd_toEndOf="parent"
