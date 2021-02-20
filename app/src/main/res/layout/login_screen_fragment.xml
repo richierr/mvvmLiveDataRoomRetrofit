@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#2196f3"
+
             android:onClick="@{() -> viewmodel.login()}"
             android:text="@string/button_title_login"
             app:layout_constraintEnd_toEndOf="parent"

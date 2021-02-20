@@ -8,4 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#9D00FF</color>
+
+    <color name="colorPrimary">#005cb2</color>
+    <color name="colorPrimaryDark">#005cb2</color>
+    <color name="colorPrimaryLight">#005cb2</color>
+    <color name="colorAccent">#1e88e5</color>
+    <color name="colorAccentDark">#005cb2</color>
+    <color name="colorAccentLight">#6ab7ff</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorRipple">@color/white_2</color>
+    <color name="white_2">#33FFFFFF</color>
 </resources>
