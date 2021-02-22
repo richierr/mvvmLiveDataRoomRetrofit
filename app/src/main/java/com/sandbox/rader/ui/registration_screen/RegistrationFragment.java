@@ -44,7 +44,7 @@ public class RegistrationFragment extends Fragment {
     }
 
     private void observeLogin() {
-        mainViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
+        mainViewModel.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
                 mainActivity.navigateToScreen(Constants.DASHBOARD_SCREEN);
             }
@@ -57,7 +57,7 @@ public class RegistrationFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
 
-        mainViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
+        mainViewModel.userMutableLiveData.removeObservers(getViewLifecycleOwner());
 
     }
 
