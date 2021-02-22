@@ -20,21 +20,21 @@ import com.sandbox.rader.utils.Constants;
 
 public class DashBoardScreenFragment extends Fragment {
 
-
     public MainViewModel mainViewModel;
-
     private DashboardScreenFragmentBinding binding;
-
     private MainActivity mainActivity;
+
+
 
     public static DashBoardScreenFragment newInstance() {
         return new DashBoardScreenFragment();
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         binding = DataBindingUtil.inflate(inflater, R.layout.dashboard_screen_fragment, container, false);
         return binding.getRoot();
     }
@@ -43,25 +43,19 @@ public class DashBoardScreenFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
-
         mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         binding.setViewmodel(mainViewModel);
-
 
         observeLogin();
         fetchExchangeRates();
     }
 
     private void fetchExchangeRates() {
-
         mainViewModel.userRepository.fetchExchangeRates(mainViewModel.currenciesLiveData);
 
     }
 
     private void observeLogin() {
-
         mainViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
             if (user == null) {
                 mainActivity.navigateToScreen(Constants.LOGIN_SCREEN);

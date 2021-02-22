@@ -21,12 +21,9 @@ import com.sandbox.rader.utils.Constants;
 public class RegistrationFragment extends Fragment {
 
     private MainViewModel mainViewModel;
-
-
-
     private RegistrationFragmentBinding binding;
-
     private MainActivity mainActivity;
+
 
     @Nullable
     @Override
