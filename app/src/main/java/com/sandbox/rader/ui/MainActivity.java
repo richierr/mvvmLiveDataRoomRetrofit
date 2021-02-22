@@ -45,13 +45,19 @@ public class MainActivity extends AppCompatActivity {
         switch (screenType) {
             case Constants.LOGIN_SCREEN:
                 fragment = new LoginFragment();
+                mainViewModel.userName.set("");
+                mainViewModel.password.set("");
                 break;
             case Constants.REGISTRATION_SCREEN:
                 fragment = new RegistrationFragment();
+                mainViewModel.userName.set("");
+                mainViewModel.password.set("");
                 break;
             case Constants.DASHBOARD_SCREEN:
             default:
                 fragment = new DashBoardScreenFragment();
+                mainViewModel.userName.set("");
+                mainViewModel.password.set("");
                 break;
         }
 

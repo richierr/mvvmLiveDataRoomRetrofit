@@ -21,7 +21,7 @@ import com.sandbox.rader.utils.Constants;
 public class LoginFragment extends Fragment {
 
     private MainViewModel mainViewModel;
-    //private LoginViewModel mViewModel;
+
 
     private LoginScreenFragmentBinding binding;
 
@@ -37,13 +37,15 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
+
+        mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
+
+
         binding.setFragment(this);
         binding.setViewmodel(mainViewModel);
 
-        //mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        //binding.setFragment(this);
-        //binding.setViewmodel(mViewModel);
+
         observeLogin();
     }
 
@@ -56,12 +58,7 @@ public class LoginFragment extends Fragment {
 
         });
 
-//        mViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
-//            if (user != null) {
-//                mainActivity.navigateToScreen(Constants.DASHBOARD_SCREEN);
-//            }
-//
-//        });
+
     }
 
     public void handleRegistrationScreen() {
@@ -73,7 +70,7 @@ public class LoginFragment extends Fragment {
         super.onDestroyView();
 
         mainViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
-//        mViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
+
     }
 
     @Override

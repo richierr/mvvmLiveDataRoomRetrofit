@@ -22,7 +22,7 @@ public class RegistrationFragment extends Fragment {
 
     private MainViewModel mainViewModel;
 
-    //private RegistrationViewModel mViewModel;
+
 
     private RegistrationFragmentBinding binding;
 
@@ -40,9 +40,8 @@ public class RegistrationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
 
-        //mViewModel = new ViewModelProvider(this).get(RegistrationViewModel.class);
         binding.setViewmodel(mainViewModel);
         observeLogin();
     }
@@ -54,11 +53,7 @@ public class RegistrationFragment extends Fragment {
             }
         });
 
-//        mViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
-//            if (user != null) {
-//                mainActivity.navigateToScreen(Constants.DASHBOARD_SCREEN);
-//            }
-//        });
+
     }
 
     @Override
@@ -66,7 +61,7 @@ public class RegistrationFragment extends Fragment {
         super.onDestroyView();
 
         mainViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
-//        mViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
+
     }
 
     @Override

@@ -20,7 +20,6 @@ import com.sandbox.rader.utils.Constants;
 
 public class DashBoardScreenFragment extends Fragment {
 
-    //public DashBoardScreenViewModel mViewModel;
 
     public MainViewModel mainViewModel;
 
@@ -43,13 +42,13 @@ public class DashBoardScreenFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mainViewModel=mainActivity.getMainViewModel();
 
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
+
+
+        mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         binding.setViewmodel(mainViewModel);
 
-//        mViewModel = new ViewModelProvider(this).get(DashBoardScreenViewModel.class);
-//        binding.setViewmodel(mViewModel);
 
         observeLogin();
         fetchExchangeRates();
@@ -58,7 +57,7 @@ public class DashBoardScreenFragment extends Fragment {
     private void fetchExchangeRates() {
 
         mainViewModel.userRepository.fetchExchangeRates(mainViewModel.currenciesLiveData);
-        //mViewModel.userRepository.fetchExchangeRates(mViewModel.currenciesLiveData);
+
     }
 
     private void observeLogin() {
@@ -71,12 +70,7 @@ public class DashBoardScreenFragment extends Fragment {
         });
 
 
-//        mViewModel.userRepository.userMutableLiveData.observe(getViewLifecycleOwner(), user -> {
-//            if (user == null) {
-//                mainActivity.navigateToScreen(Constants.LOGIN_SCREEN);
-//            }
-//
-//        });
+
     }
 
     @Override
@@ -84,7 +78,7 @@ public class DashBoardScreenFragment extends Fragment {
         super.onDestroyView();
 
         mainViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
-        //mViewModel.userRepository.userMutableLiveData.removeObservers(getViewLifecycleOwner());
+
     }
 
     @Override
